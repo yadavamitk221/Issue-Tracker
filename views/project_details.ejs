@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/css/project_detail.css">
+<div class="main-container">
+    <div class="single-project">
+        <p class="project-name">Project: <%=locals.project.name%></p>
+        <p class="description">Description: <%=locals.project.Description%></p>
+        <p class="author">Author: <%=locals.project.Author%></p>
+    </div>
+        <input class="add-btn" type="button" value="Report Issue">
+
+        <div class="form-box">
+            <div  class="form-cotainer">
+                <form action="/issue/create-issue/<%=project.id%>" method="post">
+                    
+                    <div class="labels">
+                        <p>Title:</p>
+                        <input class="values" type="text" name="title" required>
+                    </div>
+                    
+                    <div class="labels">
+                        <p>Description:</p>  
+                        <input class="values" type="text" name="description" required>
+                    </div>
+                
+                    <div class="form-labels">
+                        <p>Labels</p>  
+                        <div class="options">
+                            <div class="bugs"> 
+                                <label for="bug">BUG:</label>
+                                <input type="checkbox"  id="bug" name="label" value="bug">
+                            </div>
+                            <div class="bugs">
+                                <label for="ui improvment">UI Improvment</label>
+                                <input type="checkbox" id="ui improvment" name="label" value="ui improvment">
+                            </div>
+                            <div class="bugs">
+                                <label for="ui improvment">UI Improvment</label>
+                                <input type="checkbox" id="ui improvment" name="label" value="ui improvment">
+                            </div>
+                            <div class="bugs">
+                                <label for="documentation">Documentation</label>
+                                <input type="checkbox" id="documentation" name="label" value="documentation">
+                            </div>
+                            <div class="bugs"> 
+                                <label for="enhansment">Enhasnment</label>
+                                <input type="checkbox" id="enhansment" name="label" value="enhansment">
+                            </div>
+
+                            <div class="bugs">
+                                <label for="duplication">Duplication</label>
+                                <input type="checkbox" id="duplication" name="label" value="duplication">
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="labels">
+                        <p>Author:</p>
+                        <input class="values" type="text" name="author" required>
+                    </div>
+        
+                    <input id="submit-btn" type="submit">
+                </form>
+            </div>
+        </div>
+
+    <div class="issue-container">
+        <h4>Issues</h4>
+
+        <% if(project.issue) {%>
+            <% for(issue of project.issue) {%>
+                <div class="issue-details">
+                    <p class="title">Title: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.title%></p>
+                    <p class="description">Description: &nbsp &nbsp <%=issue.description%></p>
+                    <p class="label">label: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.labels%>  </p>
+                    <p class="author">Author: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.author%></p>
+                </div>
+            <% } %>
+        <% } %>   
+    </div>
+</div>

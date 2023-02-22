@@ -1,0 +1,61 @@
+.form-cotainer{
+    visibility: hidden;
+    display: none;
+    background-color: whitesmoke;
+    opacity: 0.95;
+    color: blue;
+}
+
+.showContainer{
+    visibility: visible;
+    display: block;
+    
+}
+
+#project-container{
+   
+    width: 70%;
+    border: 5px solid black;
+    overflow: hidden;
+}
+
+.single-project{
+    display: flex;
+    padding-left: 0.5rem;
+    background-color: chartreuse;
+    margin: 10px;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.project-info{
+    width: 92%;
+}
+
+.trash-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+#submit-btn{
+    background-color: green;
+    padding: 0.5rem 2rem;
+    width: fit-content;
+    border: none;
+    border-radius: 5px;
+    margin-left: 40%;
+    margin-bottom: 1rem;
+}
+
+.details{
+    font-size: 20px;
+}
+
+.project-name{
+    text-align: center;
+    padding-bottom: 0.8rem;
+}
