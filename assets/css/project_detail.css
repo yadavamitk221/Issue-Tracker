@@ -16,6 +16,73 @@ body{
     padding: 0.5rem;
 }
 
+
+/* Filter styling */
+#filter-options-container{
+    border: 1px solid black;
+    display: flex;
+}
+#filter-by-author{
+    padding: 0.5rem 0.8rem;
+}
+#filter-by-label{
+    padding: 0.5rem 1rem;
+}
+
+#filter-by-name{
+    margin-left: 36.5rem;
+    padding-left: 0.8rem;
+}
+
+#filter-by-label{
+    margin: auto;
+}
+
+#filter-options-container input[type=text]{
+   
+   border: 1px solid black;
+   background: transparent;
+   width: auto;
+}
+
+#filter-Buttons{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.filtre-form{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.Issueoptions{
+    padding-right: 12rem;
+}
+
+.label-filter{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-cotainer{
+    visibility: hidden;
+    display: none;
+    background-color: whitesmoke;
+    opacity: 0.95;
+    color: blue;
+}
+
+#filter-Buttons button{
+    display: flex;
+    justify-content: center;
+    width: 11rem;
+    
+}
+
+
+
 .add-btn{
     background-color: #D22B2B;
     padding: 0.5rem 2rem;
@@ -56,6 +123,10 @@ h3{
     background-color: lightpink;
     background-color: white;
     color: white;
+}
+
+#filter-by-author-submit-btn{
+    background-color: cyan;
 }
 
 .bugs{

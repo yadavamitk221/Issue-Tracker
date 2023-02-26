@@ -4,7 +4,7 @@ const Issue = require('../models/issueSchema');
 module.exports.projectDetail = async (req, res) => {
 
     try {
-        const project = await Project.findById(req.params.id).populate('issue');
+        const project = await Project.findById(req.params.id).populate('issue').sort('-createdAt');;
         return res.render('project_details', {
             title: "project details",
             project: project
@@ -20,8 +20,6 @@ module.exports.projectDetail = async (req, res) => {
 module.exports.createIssue = async (req, res) => {
     try {
          const project = await Project.findById(req.params.id);
-         console.log(`params ${req.params.id}`);
-         console.log(`form data ${req.body}`);
          const Newissue = await Issue.create({
             title: req.body.title,
             description: req.body.description,

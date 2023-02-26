@@ -5,5 +5,7 @@ const homeController = require('../controllers/home_controller');
 router.get('/', homeController.home);
 router.use('/project', require('./project'));
 router.use('/issue', require('./issue'));
+router.use('/filter', require('./filter'));
+
 
 module.exports = router;

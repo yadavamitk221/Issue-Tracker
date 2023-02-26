@@ -8,7 +8,7 @@
         <input class="add-btn" type="button" value="Report Issue">
 
         <div class="form-box">
-            <div  class="form-cotainer">
+            <div  class="form-cotainer solve">
                 <form action="/issue/create-issue/<%=project.id%>" method="post">
                     
                     <div class="labels">
@@ -23,7 +23,7 @@
                 
                     <div class="form-labels">
                         <p>Labels</p>  
-                        <div class="options">
+                        <div class="Issueoptions">
                             <div class="bugs"> 
                                 <label for="bug">BUG:</label>
                                 <input type="checkbox"  id="bug" name="label" value="bug">
@@ -56,7 +56,7 @@
                         <input class="values" type="text" name="author" required>
                     </div>
         
-                    <input id="submit-btn" type="submit">
+                    <input id="submit-btn" style="background-color: blue;" type="submit">
                 </form>
             </div>
         </div>
@@ -65,14 +65,87 @@
         <h4>Issues</h4>
 
         <% if(project.issue) {%>
-            <% for(issue of project.issue) {%>
-                <div class="issue-details">
-                    <p class="title">Title: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.title%></p>
-                    <p class="description">Description: &nbsp &nbsp <%=issue.description%></p>
-                    <p class="label">label: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.labels%>  </p>
-                    <p class="author">Author: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.author%></p>
+            <div class="filter-button-container">
+                <div id="filter-Buttons">
+                    <button  class="fltr-btn" id="author-filter-btn">Filter By Author</button>
+                    <button class="fltr-btn" id="label-filter-btn"> Filter by Labels</button>
+                    <button class="fltr-btn" id="title-filter-btn">Filter By Title and Label</button>
                 </div>
-            <% } %>
+            </div>
+            
+            <div id="filter-options-container">
+                <div id="filter-by-author" class="filtre-form form-cotainer">
+                    <form action="/filter/author" id="filter-author-form" class="filter" method="post"> 
+                        Author: 
+                        <br>
+                        <input type="text" id="author-input"  name="author" required>
+                        <br>
+                        <br>
+                        <input id="filter-submitbtn" type="submit">
+                    </form>
+                </div>
+                <div id="filter-by-label" class="filtre-form form-cotainer">
+                    <form action="/filter/author" method="post" class="filter"> 
+                        <div class="form-labels issue-form label-filter">
+                            <p>Labels</p>  
+                            <div class="options">
+                                <div class="bugs"> 
+                                    <label for="bugs">BUG:</label>
+                                    <input type="checkbox"  id="bugs" name="label" value="bug">
+                                </div>
+                                <div class="bugs">
+                                    <label for="ui improvments">UI Improvment</label>
+                                    <input type="checkbox" id="ui improvments" name="label" value="ui improvment">
+                                </div>
+                                <div class="bugs">
+                                    <label for="ui improvments">UI Improvment</label>
+                                    <input type="checkbox" id="ui improvments" name="label" value="ui improvment">
+                                </div>
+                                <div class="bugs">
+                                    <label for="documentations">Documentation</label>
+                                    <input type="checkbox" id="documentations" name="label" value="documentation">
+                                </div>
+                                <div class="bugs"> 
+                                    <label for="enhansments">Enhasnment</label>
+                                    <input type="checkbox" id="enhansments" name="label" value="enhansment">
+                                </div>
+    
+                                <div class="bugs">
+                                    <label for="duplications">Duplication</label>
+                                    <input type="checkbox" id="duplications" name="label" value="duplication">
+                                </div>  
+                            </div>
+                            <input id="labelFilterSubmit" style="box-sizing: content-box; height: fit-content;"  type="submit" value="Find">
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div id="filter-by-name" class="filtre-form form-cotainer">
+                    <form action="/filter/author" method="post" id="title-form" class="filter">
+                        title:
+                        <input type="text" name="title">
+                        <br>
+                        Description:
+                        <input type="text" name="description">
+                        <br>
+                        <input type="submit" style="background-color: blue;" value="Find" id="findby-title-submitbtn">
+                    </form>
+                </div>
+            </div>
+            <div class="list-of-Issues">
+                <% for(issue of project.issue) {%>
+                    <div class="issue-details">
+                        <p class="title">Title: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.title%></p>
+                        <p class="description">Description: &nbsp &nbsp <%=issue.description%></p>
+                        <p class="label">label: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.labels%></p>
+                        <p class="author">Author: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <%=issue.author%></p>
+                    </div>
+                <% } %>
+            </div>
         <% } %>   
     </div>
 </div>
+<script src="/js/filter.js"></script>
+<!-- <script src="/js/home.js"></script> -->

@@ -1,38 +1,42 @@
-<div>
-    <input type="button"  class="add-btn" value="+ Add New Project">
+<div id="home-main-container"> 
+    <div class="inner-conteainer">
+        <div class="form-btn-container">
+            <input type="button"  class="add-btn" value="+ Add New Project">
 
-    <div class="form-cotainer">
-        <form action="/project/create-project" method="post">
-            <p>Project Name</p>
-            <input type="text" name="name" required>
-
-            <p>Description</p>  
-            <input type="text" name="Description" required>
-
-            <p>Author</p>
-            <input type="text" name="Author" required>
-
-            <input id="submit-btn" type="submit">
-        </form>
+            <div class="form-cotainer1 issue-form-container" >
+                <form action="/project/create-project" method="post">
+                    Project Name
+                    <br>
+                    <input type="text" name="name" required>
+                    <br>
+                    Description
+                    <br>
+                    <input type="text" name="Description" required>
+                    <br>
+                    Author
+                    <br>
+                    <input style="margin: 5px;" type="text" name="Author" required>
+                    <br >
+                    <input id="submit-btn" style="margin: auto; background-color: blue;" class="project-submit-btn" type="submit">
+                </form>
+            </div>
+        </div>
+        
+        <% if(locals.allProject) { %>
+            <div id="project-container">
+                <% for(project of allProject) { %>
+                    <a href="/issue/<%=project.id%>">
+                        <div class="single-project">
+                            <div class="project-info" id="<%=project.id%>"> 
+                                <p class="project-name"> Project: <%=project.name%> </p>
+                                <p class="details"> Description: <%=project.Description%> </p>
+                                <p class="details"> Author: <%=project.Author%></p>
+                            </div>
+                        </div>
+                    </a>
+            <% } %> 
+            </div>
+        <% } %>
     </div>
 </div>
-
-<% if(locals.allProject) { %>
-    <div id="project-container">
-        <% for(project of allProject) { %>
-            <a href="/issue/<%=project.id%>">
-                <div class="single-project">
-                    <div class="project-info" id="<%=project.id%>"> 
-                        <p class="project-name"> Project: <%=project.name%> </p>
-                        <p class="details"> Description: <%=project.Description%> </p>
-                        <p class="details"> Author: <%=project.Author%></p>
-                    </div>
-                    <div class="trash-btn">
-                        <i class="fa-solid fa-trash"></i>
-                    </div>
-                </div>
-            </a>
-       <% } %> 
-    </div>
-<% } %>
 
